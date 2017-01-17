@@ -1,0 +1,1 @@
+IFS=$'\n'; for i in $(ldd /usr/bin/lpstat | awk -F "=>" '{print $1}'); do for j in $(ldd /usr/bin/lpr  | awk -F "=>" '{print $1}'); do if [[ $i == $j ]]; then echo "same lib: $i"; break 1; fi; done; done

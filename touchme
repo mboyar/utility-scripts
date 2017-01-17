@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#title:
+#author: mboyar@<wherever>
+#date: / /201x
+#contact: muratboyar(at)gmail.com
+
+
+filename=$HOME/bin/$1
+
+[[ $filename == "" ]] && echo "Gimme full path of filename" && exit 1
+[[ -s $filename ]] && echo "Gimme a new file name" && exit 1
+
+touch $filename; retTch=$?; [[ $retTch != 0 ]] && exit 1
+chmod +x $filename
+
+(
+echo "#!/bin/bash"
+echo
+echo "#title: $(basename $filename .sh)"
+echo "#author: mboyar@<wherever>"
+echo "#date: $(date +%d/%m/%y) $(date +%H:%M:%S)"
+echo "#contact: muratboyar(at)gmail.com"
+echo
+echo
+
+) >> $filename
+
+more $filename
