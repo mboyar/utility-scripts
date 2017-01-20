@@ -7,13 +7,13 @@
 
 # mkdir ######################
 
-imgDir="../img"
+imgDir="$HOME/img"
 
 [[ -d $imgDir ]] || mkdir $imgDir
 
 #
 
-WINDOW_TITLE="Zen-DD Uygulamasi"
+WINDOW_TITLE="Zen-DD"
 
 # in #########################
 
@@ -29,7 +29,7 @@ ddInPath=""
 if [[ $ddInFile == *.img ]]; then
 
 	echo "ooo fake imajlar filannn :)"
-	ddInPath="$imgDir/$devFile"
+	ddInPath="$imgDir/$ddInFile"
 
 else
 	#echo $ddInFile
@@ -88,11 +88,13 @@ fi
 ) &
 threadPid=$!
 
-dd if=$ddInPath of=$ddOutPath bs=1K count=1000000 2>&1 | zenity --text-info \
+dd if=$ddInPath of=$ddOutPath bs=4M 2>&1 | zenity --text-info \
                                                                 --title=$WINDOW_TITLE \
                                                                 --auto-scroll \
                                                                 --width 300 \
                                                                 --height 150
+
+#dd if=$ddInPath of=$ddOutPath bs=1K count=1000000 2>&1 
 
 #echo threadPid: $threadPid
 kill -SIGKILL $threadPid
