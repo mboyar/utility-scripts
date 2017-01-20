@@ -99,3 +99,5 @@ kill -SIGKILL $threadPid
 
 #TODO
 #dd de kill prosesine SIGKILL yollasın DONE
+#xz/zip/gz formatinda img alabilsin, case/esac yapısı ile.
+#fonkisyonel yapıya gecilsin
