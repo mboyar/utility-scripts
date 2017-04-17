@@ -103,3 +103,5 @@ kill -SIGKILL $threadPid
 #dd de kill prosesine SIGKILL yollasın DONE
 #xz/zip/gz formatinda img alabilsin, case/esac yapısı ile.
 #fonkisyonel yapıya gecilsin
+#bittigi anlasilmiyor, dd state.i izlesin
+#sdX secim menusu gelsin
